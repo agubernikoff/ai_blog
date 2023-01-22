@@ -3,7 +3,7 @@
   width: 100vw;
   background-color: white;
   margin: 0rem;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 body {
@@ -13,6 +13,7 @@ body {
 .slide-container {
   width: 75%;
   margin: auto;
+  margin-bottom: 10%;
 }
 
 h3 {
@@ -72,4 +73,25 @@ h3 {
 .indicator.active {
   background: #000;
   color: #fff;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: 40% 30% 30%;
+  grid-template-rows: 10% 45% 45%;
+  gap: 10px;
+  margin: 10% auto;
+  width: 75%;
+  /* height: 50vh; */
+}
+.section > h3 {
+  margin: 0;
+  justify-self: start;
+}
+.section > div {
+  width: 100%;
+}
+.section > div > h5 {
+  margin-top: 2px;
+  text-align: center;
 }
