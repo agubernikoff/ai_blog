@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+require 'faker
+'
+put 'seeding started'
+
+20 times do |i|
+BlogPost.create({title: Faker::Book.title, content: Faker::Lorem.paragraph(sentence_count: 40)})
+end
+
+put 'seeding completed'

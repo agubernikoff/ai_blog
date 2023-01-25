@@ -73,3 +73,5 @@ end
 gem "active_model_serializers", "~> 0.10.12"
 
 gem "aws-sdk-s3", "~> 1.113"
+
+gem "faker"
