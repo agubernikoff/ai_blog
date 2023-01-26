@@ -74,6 +74,11 @@ h3 {
   background: #000;
   color: #fff;
 }
+.slide-show-title {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 2px;
+  padding: 5px;
+}
 
 .section {
   display: grid;

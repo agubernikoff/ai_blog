@@ -1,16 +1,20 @@
 import React from "react";
-import Paralax from "./Paralax";
+import Slideshow from "./Slideshow";
 import Section from "./Section";
 
-function Home() {
+function Home({ blogs }) {
   const sections = ["header 1", "header 2", "header 3", "header 4", "header 5"];
-  const mappedSections = sections.map((section) => (
-    <Section header={section} />
+  const mappedSections = sections.map((section, index) => (
+    <Section
+      header={section}
+      key={section}
+      blogs={blogs.slice(index * 5, index * 5 + 5)}
+    />
   ));
   return (
     <div className="home">
       <h1>Thy Eschalot</h1>
-      <Paralax />
+      <Slideshow blogs={blogs.slice(0, 5)} />
       <div className="section-container">{mappedSections}</div>
     </div>
   );
