@@ -1,13 +1,13 @@
-.home {
-  height: 100vh;
-  width: 100vw;
-  background-color: white;
-  margin: 0rem;
-  overflow-x: hidden;
+.App {
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
-body {
-  margin: 0;
+.home {
+  width: 100vw;
 }
 
 .slide-container {
@@ -99,4 +99,18 @@ h3 {
 .section > div > h5 {
   margin-top: 2px;
   text-align: center;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.icon-container {
+  width: 3%;
+  margin: 1em;
+}
+.icon {
+  width: 100%;
 }

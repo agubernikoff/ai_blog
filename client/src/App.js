@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Home";
+import Footer from "./Footer";
 import "./App.css";
 
 const App = () => {
@@ -13,12 +14,16 @@ const App = () => {
   }, []);
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<Home blogs={blogs} />} />
-        {/* <Route path="/post" element={<Post />} />
+      <div>header</div>
+      <div>
+        <Routes>
+          <Route path="/" element={<Home blogs={blogs} />} />
+          {/* <Route path="/post" element={<Post />} />
         <Route path="/about" element={<About />} />
         <Route path="/shop" element={<Shop />} /> */}
-      </Routes>
+        </Routes>
+      </div>
+      <Footer />
     </div>
   );
 };
