@@ -34,7 +34,7 @@ class BlogPostsController < ApplicationController
   private
   
   def post_params
-    params.permit(:title,:content,files:[])
+    params.permit(:topic,:title,:content,files:[])
   end
   
   def render_unprocessable_entity invalid

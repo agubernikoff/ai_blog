@@ -8,8 +8,10 @@
 require 'faker'
 puts 'seeding started'
 
+topics=["sports","entertainment","politics","lifestyle","misc"]
+
 25.times do |i|
-    post=BlogPost.create({title: Faker::Book.title, content: Faker::Lorem.paragraph(sentence_count: 80) + Faker::Book.title, content: Faker::Lorem.paragraph(sentence_count: 80) + Faker::Book.title, content: Faker::Lorem.paragraph(sentence_count: 80)})
+    post=BlogPost.create({topic:topics[rand(0..4)],title: Faker::Book.title, content: Faker::Lorem.paragraph(sentence_count: 80) + Faker::Lorem.paragraph(sentence_count: 80) +  Faker::Lorem.paragraph(sentence_count: 80)})
     post.files.attach(io:File.open(Rails.root.join("./db/assets/seedImages/photo-#{i+1}.jpeg")),filename:"photo-#{i+1}.jpeg",content_type:'image/jpeg')
     if post.files[0]  
         puts "#{post} has a photo attached"
