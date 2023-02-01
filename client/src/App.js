@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import Header from "./Header";
 import Home from "./Home";
 import Footer from "./Footer";
 import "./App.css";
@@ -14,7 +15,7 @@ const App = () => {
   }, []);
   return (
     <div className="App">
-      <div>header</div>
+      <Header />
       <div>
         <Routes>
           <Route path="/" element={<Home blogs={blogs} />} />

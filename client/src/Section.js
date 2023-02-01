@@ -11,35 +11,35 @@ function Section({ header, blogs }) {
           <div style={{ gridColumnStart: 1, gridRowStart: 2 }}>
             <img
               src={`http://localhost:3000${blogs[0].files[0].url}`}
-              style={{ width: "100%" }}
+              style={{ width: "100%", maxHeight: "90%", objectFit: "cover" }}
             />
             <h5>{blogs[0].title}</h5>
           </div>
           <div style={{ gridColumnStart: 2, gridRowStart: 2 }}>
             <img
               src={`http://localhost:3000${blogs[1].files[0].url}`}
-              style={{ width: "100%" }}
+              style={{ width: "100%", maxHeight: "90%", objectFit: "cover" }}
             />
             <h5>{blogs[1].title}</h5>
           </div>
           <div style={{ gridColumnStart: 2, gridRowStart: 3 }}>
             <img
               src={`http://localhost:3000${blogs[2].files[0].url}`}
-              style={{ width: "100%" }}
+              style={{ width: "100%", maxHeight: "90%", objectFit: "cover" }}
             />
             <h5>{blogs[2].title}</h5>
           </div>
           <div style={{ gridColumnStart: 3, gridRowStart: 2 }}>
             <img
               src={`http://localhost:3000${blogs[3].files[0].url}`}
-              style={{ width: "100%" }}
+              style={{ width: "100%", maxHeight: "90%", objectFit: "cover" }}
             />
             <h5>{blogs[3].title}</h5>
           </div>
           <div style={{ gridColumnStart: 3, gridRowStart: 3 }}>
             <img
               src={`http://localhost:3000${blogs[4].files[0].url}`}
-              style={{ width: "100%" }}
+              style={{ width: "100%", maxHeight: "90%", objectFit: "cover" }}
             />
             <h5>{blogs[4].title}</h5>
           </div>

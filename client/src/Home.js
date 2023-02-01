@@ -13,7 +13,6 @@ function Home({ blogs }) {
   ));
   return (
     <div className="home">
-      <h1>Thy Eschalot</h1>
       <Slideshow blogs={blogs.slice(0, 5)} />
       <div className="section-container">{mappedSections}</div>
     </div>
