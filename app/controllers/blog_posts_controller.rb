@@ -5,7 +5,7 @@ class BlogPostsController < ApplicationController
   skip_before_action :is_logged_in?, only: [:index,:show]
   
   def index
-    posts=BlogPost.all
+    posts=BlogPost.all.sort_by(&:created_at).reverse!
     render json: posts
   end
 

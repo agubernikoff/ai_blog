@@ -1,48 +1,20 @@
 import React from "react";
+import BlogPostPreview from "./BlogPostPreview";
 
 function Section({ header, blogs }) {
-  console.log(blogs);
+  const filteredBlogs = blogs.filter((blog) => blog.topic === header);
+
+  const mappedPreviews = filteredBlogs
+    .slice(0, 5)
+    .map((blog) => <BlogPostPreview blog={blog} key={blog.id} />);
 
   return (
-    <div className="section">
-      <h3>{header}</h3>
+    <div className="outside-grid">
+      <h2>{header.toUpperCase()}</h2>
       {blogs[0] ? (
         <>
-          <div style={{ gridColumnStart: 1, gridRowStart: 2 }}>
-            <img
-              src={`http://localhost:3000${blogs[0].files[0].url}`}
-              style={{ width: "100%", maxHeight: "90%", objectFit: "cover" }}
-            />
-            <h5>{blogs[0].title}</h5>
-          </div>
-          <div style={{ gridColumnStart: 2, gridRowStart: 2 }}>
-            <img
-              src={`http://localhost:3000${blogs[1].files[0].url}`}
-              style={{ width: "100%", maxHeight: "90%", objectFit: "cover" }}
-            />
-            <h5>{blogs[1].title}</h5>
-          </div>
-          <div style={{ gridColumnStart: 2, gridRowStart: 3 }}>
-            <img
-              src={`http://localhost:3000${blogs[2].files[0].url}`}
-              style={{ width: "100%", maxHeight: "90%", objectFit: "cover" }}
-            />
-            <h5>{blogs[2].title}</h5>
-          </div>
-          <div style={{ gridColumnStart: 3, gridRowStart: 2 }}>
-            <img
-              src={`http://localhost:3000${blogs[3].files[0].url}`}
-              style={{ width: "100%", maxHeight: "90%", objectFit: "cover" }}
-            />
-            <h5>{blogs[3].title}</h5>
-          </div>
-          <div style={{ gridColumnStart: 3, gridRowStart: 3 }}>
-            <img
-              src={`http://localhost:3000${blogs[4].files[0].url}`}
-              style={{ width: "100%", maxHeight: "90%", objectFit: "cover" }}
-            />
-            <h5>{blogs[4].title}</h5>
-          </div>
+          {mappedPreviews[0]}
+          <div className="inside-grid">{mappedPreviews.slice(1, 5)}</div>
         </>
       ) : null}
     </div>

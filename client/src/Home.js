@@ -3,13 +3,9 @@ import Slideshow from "./Slideshow";
 import Section from "./Section";
 
 function Home({ blogs }) {
-  const sections = ["header 1", "header 2", "header 3", "header 4", "header 5"];
-  const mappedSections = sections.map((section, index) => (
-    <Section
-      header={section}
-      key={section}
-      blogs={blogs.slice(index * 5, index * 5 + 5)}
-    />
+  const topics = ["sports", "entertainment", "politics", "lifestyle", "misc"];
+  const mappedSections = topics.map((topic, index) => (
+    <Section header={topic} key={topic} blogs={blogs} />
   ));
   return (
     <div className="home">
