@@ -90,6 +90,9 @@ h3 {
   border-bottom: 1px solid grey;
   padding: 5px;
 }
+.outside-grid:last-of-type {
+  border: none;
+}
 .inside-grid {
   grid-column-start: 2;
   grid-row-start: 2;
@@ -99,7 +102,7 @@ h3 {
   gap: 10px;
   width: 100%;
 }
-.outside-grid > h3 {
+.outside-grid > h2 {
   margin: 0;
   justify-self: start;
   grid-column-start: 1;
