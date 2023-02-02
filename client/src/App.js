@@ -4,6 +4,7 @@ import Header from "./Header";
 import Home from "./Home";
 import Footer from "./Footer";
 import "./App.css";
+import Blog from "./Blog";
 
 const App = () => {
   const [blogs, setBlogs] = useState([]);
@@ -19,8 +20,8 @@ const App = () => {
       <div>
         <Routes>
           <Route path="/" element={<Home blogs={blogs} />} />
-          {/* <Route path="/post" element={<Post />} />
-        <Route path="/about" element={<About />} />
+          <Route path="/blog/:id" element={<Blog />} />
+          {/* <Route path="/about" element={<About />} />
         <Route path="/shop" element={<Shop />} /> */}
         </Routes>
       </div>

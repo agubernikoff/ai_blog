@@ -1,7 +1,7 @@
 class BlogPostSerializer < ActiveModel::Serializer
     include Rails.application.routes.url_helpers
 
-  attributes :id,:topic,:title,:content,:author,:files
+  attributes :id,:topic,:title,:content,:author,:created_at,:files
 
   def files
     return unless object.files.attached?
