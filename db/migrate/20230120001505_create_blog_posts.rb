@@ -4,6 +4,7 @@ class CreateBlogPosts < ActiveRecord::Migration[7.0]
       t.string :topic
       t.string :title
       t.string :content
+      t.string :author
 
       t.timestamps
     end
