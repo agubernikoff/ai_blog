@@ -4,7 +4,7 @@ import Section from "./Section";
 
 function Home({ blogs }) {
   const topics = ["sports", "entertainment", "politics", "lifestyle", "misc"];
-  const mappedSections = topics.map((topic, index) => (
+  const mappedSections = topics.map((topic) => (
     <Section header={topic} key={topic} blogs={blogs} />
   ));
   return (
