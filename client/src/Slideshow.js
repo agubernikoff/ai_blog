@@ -12,7 +12,7 @@ const Slideshow = ({ blogs }) => {
     easing: "ease",
     indicators: (i) => <div className="indicator">{"•"}</div>,
   };
-  blogs[0] ? console.log(blogs) : console.log("fuck");
+
   return (
     <div className="slide-container">
       {blogs[0] ? (

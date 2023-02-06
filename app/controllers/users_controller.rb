@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid,with: :render_unprocessable_entity
     rescue_from ActiveRecord::RecordNotFound,with: :render_not_found
-    skip_before_action :is_logged_in?,only: [:create]
+    skip_before_action :is_logged_in?,only: [:index,:create,:show_me]
     
     
     def index
       users = User.all
       # User.find_each(&:save)
-      render json: users,each_serializer: UserSearchSerializer
+      render json: users
     end
     
     def create
@@ -50,6 +50,6 @@ class UsersController < ApplicationController
     end
     
     def render_not_found
-      render json: {error: "User not found"}, status: 404
+      render json: {error: session[:user_id]}, status: 404
     end
   end
