@@ -22,7 +22,9 @@ const App = () => {
       .then((data) => setBlogs(data));
 
     fetch("http://localhost:3000/me")
-      .then((r) => r.json())
+      .then((r) => {
+        if (r.ok) r.json();
+      })
       .then((data) => setUser(data));
   }, []);
 
