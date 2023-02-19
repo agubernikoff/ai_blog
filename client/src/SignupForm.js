@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Loading from "./Loading";
 
@@ -19,7 +19,7 @@ function SignUpForm({ login }) {
     e.preventDefault();
     setErrors([]);
     setIsLoading(true);
-    fetch("http://localhost:3000/users", {
+    fetch("/users", {
       method: "POST",
       body: formData,
     }).then((r) => {

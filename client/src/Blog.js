@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function Blog() {
   const [blog, setBlog] = useState();
@@ -7,10 +7,10 @@ function Blog() {
   const blogID = useParams().id;
 
   useEffect(() => {
-    fetch(`http://localhost:3000/blog_posts/${blogID}`)
+    fetch(`/blog_posts/${blogID}`)
       .then((r) => r.json())
       .then((data) => setBlog(data));
-  }, []);
+  }, [blogID]);
 
   if (blog) console.log();
   return (
@@ -30,8 +30,9 @@ function Blog() {
             })}
           </p>
           <img
-            src={`http://localhost:3000${blog.files[0].url}`}
+            src={blog.files[0].url}
             className="blog-main-image"
+            alt="content"
           />
           <p>{blog.content}</p>
         </>

@@ -1,12 +1,12 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import email from "./assets/email.png";
 import ig from "./assets/ig.png";
 import tiktok from "./assets/tiktok.png";
 import linkedin from "./assets/linkedin.png";
 
 function Footer() {
-  const location = useLocation();
+  // const location = useLocation();
   return (
     <div className="footer">
       <a href="mailto:maxmillstein1@gmail.com" className="icon-container">

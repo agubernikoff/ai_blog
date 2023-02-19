@@ -17,15 +17,17 @@ const App = () => {
   console.log(user);
 
   useEffect(() => {
-    fetch("http://localhost:3000/blog_posts")
+    fetch("/blog_posts")
       .then((r) => r.json())
       .then((data) => setBlogs(data));
 
-    fetch("http://localhost:3000/me")
-      .then((r) => {
-        if (r.ok) r.json();
-      })
-      .then((data) => setUser(data));
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => {
+          setUser(user);
+        });
+      }
+    });
   }, []);
 
   return (
