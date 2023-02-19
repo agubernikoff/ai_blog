@@ -14,6 +14,7 @@ function Header({ user, logout }) {
 
   function handleClick(e) {
     if (pressedButton === "Meta" && !user) nav("/login");
+    else nav("/");
   }
 
   return (
@@ -22,6 +23,7 @@ function Header({ user, logout }) {
         onClick={(e) => {
           handleClick(e);
         }}
+        style={{ cursor: "pointer" }}
       >
         Thy Eschalot
       </h1>
