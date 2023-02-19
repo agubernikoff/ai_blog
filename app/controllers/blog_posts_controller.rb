@@ -26,7 +26,7 @@ class BlogPostsController < ApplicationController
   end
 
   def destroy
-    post = Post.find(params[:id])
+    post = BlogPost.find(params[:id])
     post.destroy!
     head :no_content
   end

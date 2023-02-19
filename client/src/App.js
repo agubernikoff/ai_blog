@@ -26,6 +26,12 @@ const App = () => {
     setBlogs([newBlog, ...blogs]);
   }
 
+  function deleteBlog(blogID) {
+    const filteredBlogs = blogs.filter((blog) => blog.id !== blogID);
+    console.log(filteredBlogs);
+    setBlogs(filteredBlogs);
+  }
+
   useEffect(() => {
     fetch("/blog_posts")
       .then((r) => r.json())
@@ -46,7 +52,10 @@ const App = () => {
       <div>
         <Routes>
           <Route path="/" element={<Home blogs={blogs} />} />
-          <Route path="/blog/:id" element={<Blog />} />
+          <Route
+            path="/blog/:id"
+            element={<Blog user={user} deleteBlog={deleteBlog} />}
+          />
           <Route path="/login" element={<Login login={login} />} />
           {/* <Route path="/about" element={<About />} />
         <Route path="/shop" element={<Shop />} /> */}

@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-function Blog() {
+function Blog({ user, deleteBlog }) {
   const [blog, setBlog] = useState();
 
   const blogID = useParams().id;
+
+  const nav = useNavigate();
 
   useEffect(() => {
     fetch(`/blog_posts/${blogID}`)
@@ -12,7 +15,14 @@ function Blog() {
       .then((data) => setBlog(data));
   }, [blogID]);
 
-  if (blog) console.log();
+  function handleDelete() {
+    fetch(`/blog_posts/${blogID}`, { method: "DELETE" }).then((r) => {
+      if (r.ok) {
+        deleteBlog(blog.id);
+        nav("/");
+      }
+    });
+  }
   return (
     <div className="blog">
       {blog ? (
@@ -35,6 +45,7 @@ function Blog() {
             alt="content"
           />
           <p>{blog.content}</p>
+          <button onClick={handleDelete}>DELETE BLOG</button>
         </>
       ) : null}
     </div>
