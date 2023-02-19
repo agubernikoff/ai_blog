@@ -45,7 +45,7 @@ function Blog({ user, deleteBlog }) {
             alt="content"
           />
           <p>{blog.content}</p>
-          <button onClick={handleDelete}>DELETE BLOG</button>
+          {user ? <button onClick={handleDelete}>DELETE BLOG</button> : null}
         </>
       ) : null}
     </div>
