@@ -6,6 +6,12 @@
   grid-template-rows: auto 1fr auto;
 }
 
+.admin-controls {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 2% 0;
+}
+
 .home {
   width: 100vw;
 }

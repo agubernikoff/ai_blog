@@ -10,7 +10,7 @@ function AdminControls({ logout }) {
       : null;
 
   return (
-    <div>
+    <div className="admin-controls">
       <NavLink to={`/new_post`} style={activeStyle}>
         New Blog Post
       </NavLink>
