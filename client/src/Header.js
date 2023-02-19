@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import AdminControls from "./AdminControls";
 
-function Header() {
+function Header({ user, logout }) {
   const [pressedButton, setPressedButton] = useState(null);
 
   const nav = useNavigate();
@@ -12,7 +13,7 @@ function Header() {
   }, []);
 
   function handleClick(e) {
-    if (pressedButton === "Meta") nav("/login");
+    if (pressedButton === "Meta" && !user) nav("/login");
   }
 
   return (
@@ -24,6 +25,7 @@ function Header() {
       >
         Thy Eschalot
       </h1>
+      {user ? <AdminControls logout={logout} /> : null}
     </div>
   );
 }

@@ -1,4 +1,5 @@
 class BlogPost < ApplicationRecord
+    validates :topic, presence: true  
     validates :title, presence: true
     validates :content, presence: true
 

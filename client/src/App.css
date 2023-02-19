@@ -162,6 +162,18 @@ h3 {
   width: 100%;
 }
 
+.newPost {
+  display: flex;
+  margin: auto;
+  width: fit-content;
+}
+.newPostForm {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+  position: relative;
+}
+
 .footer {
   display: flex;
   flex-direction: row;

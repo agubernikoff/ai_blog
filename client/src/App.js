@@ -6,6 +6,7 @@ import Login from "./Login";
 import Footer from "./Footer";
 import "./App.css";
 import Blog from "./Blog";
+import NewPost from "./NewPost";
 
 const App = () => {
   const [blogs, setBlogs] = useState([]);
@@ -14,7 +15,16 @@ const App = () => {
   function login(user) {
     setUser(user);
   }
-  console.log(user);
+
+  function logout() {
+    fetch("/logout", {
+      method: "DELETE",
+    }).then(() => setUser(null));
+  }
+
+  function updateBlogs(newBlog) {
+    setBlogs([newBlog, ...blogs]);
+  }
 
   useEffect(() => {
     fetch("/blog_posts")
@@ -32,7 +42,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header />
+      <Header user={user} logout={logout} />
       <div>
         <Routes>
           <Route path="/" element={<Home blogs={blogs} />} />
@@ -40,6 +50,10 @@ const App = () => {
           <Route path="/login" element={<Login login={login} />} />
           {/* <Route path="/about" element={<About />} />
         <Route path="/shop" element={<Shop />} /> */}
+          <Route
+            path="/new_post"
+            element={<NewPost updateBlogs={updateBlogs} />}
+          />
         </Routes>
       </div>
       <Footer />
