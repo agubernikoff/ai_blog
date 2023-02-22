@@ -23,7 +23,7 @@ function Header({ user, logout }) {
         onClick={(e) => {
           handleClick(e);
         }}
-        style={{ cursor: "pointer" }}
+        style={{ cursor: "pointer", width: "fit-content" }}
       >
         Thy Eschalot
       </h1>

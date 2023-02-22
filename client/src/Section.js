@@ -1,7 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import BlogPostPreview from "./BlogPostPreview";
 
 function Section({ header, blogs }) {
+  const nav = useNavigate();
+
   const filteredBlogs = blogs.filter((blog) => blog.topic === header);
 
   const mappedPreviews = filteredBlogs
@@ -10,7 +13,9 @@ function Section({ header, blogs }) {
 
   return (
     <div className="outside-grid">
-      <h2>{header.toUpperCase()}</h2>
+      <h2 onClick={() => nav(`/topic/${header}`)} style={{ cursor: "pointer" }}>
+        {header.toUpperCase()}
+      </h2>
       {blogs[0] ? (
         <>
           {mappedPreviews[0]}

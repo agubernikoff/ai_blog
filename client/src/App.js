@@ -7,6 +7,7 @@ import Footer from "./Footer";
 import "./App.css";
 import Blog from "./Blog";
 import NewPost from "./NewPost";
+import Topic from "./Topic";
 
 const App = () => {
   const [blogs, setBlogs] = useState([]);
@@ -52,6 +53,7 @@ const App = () => {
       <div>
         <Routes>
           <Route path="/" element={<Home blogs={blogs} />} />
+          <Route path="/topic/:topic" element={<Topic blogs={blogs} />} />
           <Route
             path="/blog/:id"
             element={<Blog user={user} deleteBlog={deleteBlog} />}

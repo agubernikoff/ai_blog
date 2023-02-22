@@ -1,3 +1,8 @@
+body {
+  background: rgb(232, 213, 253);
+  color: rgb(40, 21, 65);
+}
+
 .App {
   min-height: 100vh;
   min-height: 100dvh;
@@ -22,7 +27,7 @@
   margin-bottom: 10%;
 }
 
-h3 {
+.blog-post-preview > h3 {
   text-align: center;
 }
 
@@ -114,6 +119,9 @@ h3 {
   grid-column-start: 1;
   grid-row-start: 1;
 }
+.outside-grid > h2:hover {
+  text-decoration: underline;
+}
 .outside-grid > div {
   width: 100%;
 }
@@ -157,8 +165,13 @@ h3 {
   object-fit: cover;
 }
 
+.topic-blog-preview {
+  display: flex;
+  margin: 4% 0;
+}
+
 .blog {
-  width: 90%;
+  width: 75%;
   margin: auto;
 }
 .published_at {
