@@ -1,6 +1,11 @@
+:root {
+  --lt-purple: rgb(232, 213, 253);
+  --dk-purple: rgb(40, 21, 65);
+}
+
 body {
-  background: rgb(232, 213, 253);
-  color: rgb(40, 21, 65);
+  background: var(--lt-purple);
+  color: var(--dk-purple);
 }
 
 .App {
@@ -11,6 +16,15 @@ body {
   grid-template-rows: auto 1fr auto;
 }
 
+.navbar {
+  display: flex;
+  justify-content: space-around;
+}
+.navbar > a {
+  text-decoration: none;
+  color: var(--dk-purple);
+  padding: 5px;
+}
 .admin-controls {
   display: flex;
   justify-content: space-evenly;
@@ -18,7 +32,7 @@ body {
 }
 
 .home {
-  width: 100vw;
+  width: 99vw;
 }
 
 .slide-container {

@@ -4,8 +4,8 @@ import TopicFirstBlogPreview from "./TopicFirstBlogPreview";
 import TopicBlogPreview from "./TopicBlogPreview";
 
 function Topic({ blogs }) {
+  console.log(blogs);
   const params = useParams();
-  console.log(params.topic);
 
   const filteredBlogs = blogs.filter((b) => b.topic === params.topic);
 

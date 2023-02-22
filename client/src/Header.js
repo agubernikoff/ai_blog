@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "./Navbar";
 import AdminControls from "./AdminControls";
 
 function Header({ user, logout }) {
@@ -27,6 +28,7 @@ function Header({ user, logout }) {
       >
         Thy Eschalot
       </h1>
+      <Navbar />
       {user ? <AdminControls logout={logout} /> : null}
     </div>
   );
