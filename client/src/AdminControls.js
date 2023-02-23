@@ -5,7 +5,8 @@ function AdminControls({ logout }) {
   const activeStyle = ({ isActive }) =>
     isActive
       ? {
-          textDecoration: "underline",
+          color: "rgb(232, 213, 253)",
+          background: "rgb(40, 21, 65)",
         }
       : null;
 

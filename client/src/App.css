@@ -1,5 +1,5 @@
 :root {
-  --lt-purple: rgb(232, 213, 253);
+  --lt-purple: rgb(234, 218, 250);
   --dk-purple: rgb(40, 21, 65);
 }
 
@@ -19,8 +19,11 @@ body {
 .navbar {
   display: flex;
   justify-content: space-around;
+  width: 75%;
+  margin: 2% auto;
 }
-.navbar > a {
+.navbar > a,
+.admin-controls > a {
   text-decoration: none;
   color: var(--dk-purple);
   padding: 5px;
@@ -56,7 +59,7 @@ body {
 .each-slide span {
   padding: 2.5vh;
   font-size: 2.5vh;
-  background: #efefef;
+  background: rgb(125, 105, 145);
   text-align: center;
 }
 
@@ -79,15 +82,15 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0;
-  background: #adceed;
+  background: rgb(125, 105, 145);
 }
 
 .indicator {
   width: 3vh;
-  color: rgb(0, 0, 0);
+  color: var(--dk-purple);
   text-align: center;
   cursor: pointer;
-  border: 0.1vh rgb(199, 199, 199) solid;
+  border: 0.1vh rgb(125, 105, 145) solid;
   border-radius: 10px;
 }
 
@@ -96,11 +99,11 @@ body {
   margin-bottom: -10%;
 }
 .indicator.active {
-  background: #000;
-  color: #fff;
+  background: var(--dk-purple);
+  color: var(--lt-purple);
 }
 .slide-show-title {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(234, 218, 250, 0.5);
   border-radius: 2px;
   padding: 5px;
 }
@@ -112,7 +115,7 @@ body {
   gap: 10px;
   margin: 5% auto;
   width: 75%;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid var(--dk-purple);
   padding: 5px;
 }
 .outside-grid:last-of-type {
@@ -147,7 +150,7 @@ body {
   text-align: center;
 }
 .blog-post-preview > p {
-  color: grey;
+  color: rgb(125, 105, 145);
 }
 
 .blog-post-preview:first-of-type {
@@ -189,7 +192,7 @@ body {
   margin: auto;
 }
 .published_at {
-  color: grey;
+  color: rgb(125, 105, 145);
 }
 .blog-main-image {
   width: 100%;
