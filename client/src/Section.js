@@ -1,11 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import BlogPostPreview from "./BlogPostPreview";
 
-function Section({ header, blogs }) {
+function Section({ header }) {
+  const blogs = useSelector((state) => state.blogs.blogs);
   const nav = useNavigate();
 
-  const filteredBlogs = blogs.filter((blog) => blog.topic === header);
+  const filteredBlogs = [...blogs].filter((blog) => blog.topic === header);
 
   const mappedPreviews = filteredBlogs
     .slice(0, 5)

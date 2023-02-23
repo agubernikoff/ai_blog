@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Loading from "./Loading.js";
+import { useDispatch } from "react-redux";
+import { blogsActions } from "./store/blogs-slice";
 
-function NewPost({ updateBlogs }) {
+function NewPost() {
   const [topic, setTopic] = useState("");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [files, setFiles] = useState([]);
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
@@ -37,7 +41,7 @@ function NewPost({ updateBlogs }) {
         if (r.ok) {
           r.json().then((data) => {
             setIsLoading(false);
-            updateBlogs(data);
+            dispatch(blogsActions.updateBlogs(data));
             navigate("/");
           });
         } else {

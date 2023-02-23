@@ -8,63 +8,42 @@ import "./App.css";
 import Blog from "./Blog";
 import NewPost from "./NewPost";
 import Topic from "./Topic";
+import { useDispatch } from "react-redux";
+import { userActions } from "./store/user-slice";
+import { blogsActions } from "./store/blogs-slice";
 
 const App = () => {
-  const [blogs, setBlogs] = useState([]);
-  const [user, setUser] = useState(null);
-
-  function login(user) {
-    setUser(user);
-  }
-
-  function logout() {
-    fetch("/logout", {
-      method: "DELETE",
-    }).then(() => setUser(null));
-  }
-
-  function updateBlogs(newBlog) {
-    setBlogs([newBlog, ...blogs]);
-  }
-
-  function deleteBlog(blogID) {
-    const filteredBlogs = blogs.filter((blog) => blog.id !== blogID);
-    console.log(filteredBlogs);
-    setBlogs(filteredBlogs);
-  }
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetch("/blog_posts")
       .then((r) => r.json())
-      .then((data) => setBlogs(data));
+      .then((data) => {
+        console.log("yea");
+        dispatch(blogsActions.setBlogs(data));
+      });
 
     fetch("/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => {
-          setUser(user);
+          dispatch(userActions.setUser(user));
         });
       }
     });
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="App">
-      <Header user={user} logout={logout} />
+      <Header />
       <div>
         <Routes>
-          <Route path="/" element={<Home blogs={blogs} />} />
-          <Route path="/topic/:topic" element={<Topic blogs={blogs} />} />
-          <Route
-            path="/blog/:id"
-            element={<Blog user={user} deleteBlog={deleteBlog} />}
-          />
-          <Route path="/login" element={<Login login={login} />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/topic/:topic" element={<Topic />} />
+          <Route path="/blog/:id" element={<Blog />} />
+          <Route path="/login" element={<Login />} />
           {/* <Route path="/about" element={<About />} />
         <Route path="/shop" element={<Shop />} /> */}
-          <Route
-            path="/new_post"
-            element={<NewPost updateBlogs={updateBlogs} />}
-          />
+          <Route path="/new_post" element={<NewPost />} />
         </Routes>
       </div>
       <Footer />

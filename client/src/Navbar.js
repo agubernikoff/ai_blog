@@ -13,7 +13,7 @@ function Navbar() {
   const topics = ["sports", "pop culture", "food", "nonsense"];
 
   const mappedTopics = topics.map((topic) => (
-    <NavLink to={`/topic/${topic}`} style={activeStyle}>
+    <NavLink to={`/topic/${topic}`} style={activeStyle} key={topic}>
       {topic}
     </NavLink>
   ));

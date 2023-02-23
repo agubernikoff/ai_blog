@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { blogsActions } from "./store/blogs-slice";
 
-function Blog({ user, deleteBlog }) {
+function Blog() {
+  const user = useSelector((state) => state.user.user);
+
+  const dispatch = useDispatch();
+
   const [blog, setBlog] = useState();
 
   const blogID = useParams().id;
@@ -18,7 +24,7 @@ function Blog({ user, deleteBlog }) {
   function handleDelete() {
     fetch(`/blog_posts/${blogID}`, { method: "DELETE" }).then((r) => {
       if (r.ok) {
-        deleteBlog(blog.id);
+        dispatch(blogsActions.deleteBlog(blog.id));
         nav("/");
       }
     });

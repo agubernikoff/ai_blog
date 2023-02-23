@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { userActions } from "./store/user-slice";
 import Loading from "./Loading";
 
-function SignUpForm({ login }) {
+function SignUpForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   const formData = new FormData();
   formData.append("username", username);
@@ -26,7 +30,7 @@ function SignUpForm({ login }) {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => {
-          login(user);
+          dispatch(userActions.setUser(user));
           navigate("/");
         });
       } else {

@@ -1,9 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 
-const Slideshow = ({ blogs }) => {
+const Slideshow = () => {
+  const blogs = useSelector((state) => state.blogs.blogs);
+  const sliced = [...blogs].slice(0, 5);
+
   const nav = useNavigate();
 
   const properties = {
@@ -20,7 +24,7 @@ const Slideshow = ({ blogs }) => {
     <div className="slide-container">
       {blogs[0] ? (
         <Slide {...properties}>
-          {blogs.map((blog, index) => (
+          {sliced.map((blog, index) => (
             <div className="each-slide" key={index}>
               <div
                 style={{

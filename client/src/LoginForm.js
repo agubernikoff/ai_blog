@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { userActions } from "./store/user-slice";
 import Loading from "./Loading";
 
-function LoginForm({ login }) {
+function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -23,8 +27,8 @@ function LoginForm({ login }) {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => {
-          login(user);
-          navigate("/");
+          dispatch(userActions.setUser(user));
+          navigate(-1);
         });
       } else {
         r.json().then((err) => setErrors(err.errors));

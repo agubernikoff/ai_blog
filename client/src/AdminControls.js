@@ -1,7 +1,17 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { userActions } from "./store/user-slice";
 
-function AdminControls({ logout }) {
+function AdminControls() {
+  const dispatch = useDispatch();
+
+  function logout() {
+    fetch("/logout", {
+      method: "DELETE",
+    }).then(() => dispatch(userActions.logOut()));
+  }
+
   const activeStyle = ({ isActive }) =>
     isActive
       ? {

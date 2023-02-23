@@ -1,13 +1,16 @@
 import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import TopicFirstBlogPreview from "./TopicFirstBlogPreview";
 import TopicBlogPreview from "./TopicBlogPreview";
 
-function Topic({ blogs }) {
+function Topic() {
+  const blogs = useSelector((state) => state.blogs.blogs);
   console.log(blogs);
+
   const params = useParams();
 
-  const filteredBlogs = blogs.filter((b) => b.topic === params.topic);
+  const filteredBlogs = [...blogs].filter((b) => b.topic === params.topic);
 
   const restOfBlogs = filteredBlogs
     .slice(1)

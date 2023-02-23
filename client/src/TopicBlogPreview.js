@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 function TopicBlogPreview({ blog }) {
+  console.log(blog);
   const nav = useNavigate();
   return (
     <div

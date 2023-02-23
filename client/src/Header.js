@@ -3,8 +3,11 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import AdminControls from "./AdminControls";
 import logo from "./assets/2.png";
+import { useSelector } from "react-redux";
 
-function Header({ user, logout }) {
+function Header() {
+  const user = useSelector((state) => state.user.user);
+
   const [pressedButton, setPressedButton] = useState(null);
 
   const nav = useNavigate();
@@ -36,7 +39,7 @@ function Header({ user, logout }) {
         style={{ cursor: "pointer", width: "10%", margin: "auto" }}
       />
       <Navbar />
-      {user ? <AdminControls logout={logout} /> : null}
+      {user ? <AdminControls /> : null}
     </div>
   );
 }
