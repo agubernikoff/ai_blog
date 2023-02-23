@@ -19,7 +19,6 @@ const App = () => {
     fetch("/blog_posts")
       .then((r) => r.json())
       .then((data) => {
-        console.log("yea");
         dispatch(blogsActions.setBlogs(data));
       });
 
